@@ -4,6 +4,6 @@
 
 % npm install -g react-tools
 
-% jsx -x jsx ./src ./build
+% jsx --watch src/ build/
 
 ```
