@@ -1,7 +1,7 @@
 # react test
 
 ```
-# browserify
+# gulp + reactify + browserify
 
 npm install -g gulp
 npm install gulp --save-dev
