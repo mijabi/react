@@ -45,10 +45,25 @@ var CommentList = React.createClass({displayName: "CommentList",
 });
 
 var CommentForm = React.createClass({displayName: "CommentForm",
+  handleSubmit: function(e){
+    e.preventDefault();
+    var author = ReactDOM.findDOMNode(this.refs.author).value.trim();
+    var text = ReactDOM.findDOMNode(this.refs.text).value.trim();
+    if(!text || !author) {
+      return;
+    }
+    this.props.onCommentSubmit({author: author, text: text});
+    ReactDOM.findDOMNode(this.refs.author).value = '';
+    ReactDOM.findDOMNode(this.refs.text).value = '';
+    return;
+  },
   render: function(){
     return (
-      React.createElement("div", {className: "commentForm"}, 
-        "Hello, world! I am a CommentForm."
+      React.createElement("form", {className: "commentForm", onSubmit: this.handleSubmit}, 
+        React.createElement("input", {type: "text", placeholder: "Your name", ref: "author"}), 
+        React.createElement("input", {type: "text", placeholder: "Say something", ref: "text"}), 
+        React.createElement("input", {type: "submit", value: "Post"}), 
+        "// Hello, world! I am a CommentForm."
       )
     );
   }
@@ -69,6 +84,10 @@ var CommentBox = React.createClass({displayName: "CommentBox",
       }.bind(this)
     });
   },
+  handleCommentSubmit: function(comment) {
+    // TODO: send to server, reflesh comment list
+    console.log('POST data, refles comment list from callback')
+  },
   getInitialState: function(){
     return {data: []};
   },
@@ -82,7 +101,7 @@ var CommentBox = React.createClass({displayName: "CommentBox",
       React.createElement("div", {className: "commentBox"}, 
         React.createElement("h1", null, "Comments"), 
         React.createElement(CommentList, {data: this.state.data}), 
-        React.createElement(CommentForm, null)
+        React.createElement(CommentForm, {onCommentSubmit: this.handleCommentSubmit})
       )
 
     );
