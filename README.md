@@ -3,16 +3,16 @@
 ```
 # gulp + reactify + browserify
 
-npm install -g gulp
-npm install gulp --save-dev
-npm install vinyl-source-stream --save-dev
-npm install browserify --save-dev
-npm install gulp-uglify --save-dev
-npm install licensify --save-dev
-npm install reactify --save-dev
+% npm install -g gulp
+% npm install gulp --save-dev
+% npm install vinyl-source-stream --save-dev
+% npm install browserify --save-dev
+% npm install gulp-uglify --save-dev
+% npm install licensify --save-dev
+% npm install reactify --save-dev
 
-npm install jquery@1.8.3 --save-dev
-npm install lodash --save-dev
+% npm install jquery@1.8.3 --save-dev
+% npm install lodash --save-dev
 ```
 
 ```
