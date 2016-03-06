@@ -6,4 +6,11 @@
 
 % jsx --watch src/ build/
 
+
+```
+
+```
+
+% python -m SimpleHTTPServer 0000
+
 ```
