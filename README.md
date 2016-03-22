@@ -22,6 +22,7 @@
 
 % jsx --watch src/ build/
 
+# 別タブで
 % python -m SimpleHTTPServer 0000
 
 ```
